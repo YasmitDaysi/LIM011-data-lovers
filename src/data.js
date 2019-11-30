@@ -12,19 +12,13 @@ export const filter = (data, propiedad, value) => {
       newArray.push({
         name: data[i].name,
         image: data[i].image,
-
       });
     }
   }
   return newArray;
 };
 export const filtrar = (data, valor) => {
-  const filterHouse = data.filter((element) => {
-    if (element.house === valor) {
-      return true;
-    }
-    return false;
-  });
+  const filterHouse = data.filter((element) => (element.house === valor));
   return filterHouse;
 };
 

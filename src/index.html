@@ -1,95 +1,81 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
   <meta charset="UTF-8">
   <title>Data Lovers</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="style.css" />
-</head>
-<!-- seccion head -->
-<section>
-
-  <h1 id="title">THE WIZARDING WORLD <br>
-    OF<br>
-    HARRY POTTER
-  </h1>
-</section>
-
+  </head>
 <body>
-  <section id="opciones">
-    <nav>
+  <section class="flex-divicionPagina">
+    <header class="flex-container">
+      <img class= "flex-item" src="https://scontent-mia3-2.cdninstagram.com/vp/413ab67ea3aea7191bad4d5171b932d9/5E87CAB9/t51.2885-19/s150x150/75487952_474898183413809_3762319908809998336_n.jpg?_nc_ht=scontent-mia3-2.cdninstagram.com"/>
       <ul>
         <li id="opcion1">PERSONAJES</li>
         <li id="patronus">HECHIZOS</li>
         <li id="varitas">VARITAS</li>
       </ul>
-    </nav>
-  </section>
-  <main id="main" class="hide">
-    <!-- seccion filtrar -->
-    <section class="listfiltrar ">
-      <section id="secInicio">
-        <p>Filtrar por:</p>
-        <button id="btn-Especie" class="button ">Especie</button>
-        <button id="btn-Casas" class="button ">Casas</button>
-        <button id="btn-Roles" class="button ">Roles</button>
-      </section>
+    
+    </header>
+      <main id="main" class="hide ">
+       <!-- seccion filtrar -->
+        <section class="listfiltrar">
+        
+          <section id="secInicio" class="Inicio">
+           <section>
+              <button id="btn-Especie" class="button ">Especie</button>
+              <button id="btn-Casas" class="button ">Casas</button>
+              <button id="btn-Roles" class="button ">Roles</button>
+            </section>
 
-      <!-- seccion Especies -->
-      <section id="secEspecie" class="hide">
-        <button class="regresar"> Regresar</button>
-        <p>Especies </p>
-        <p>Filtrar por:</p>
-        <button class="button " id="btn-Humano">Humano</button>
-        <button class="button " id="btn-Half-giant">Half-giant</button>
-        <button class="button " id="btn-Werewolf">Werewolf</button>
-        <button class="button " id="btn-Cat">Cat</button>
-      </section>
+            <section class="ordenar">
+              <p id="ordenar" >Ordenar por:</p>
+              <button id="orden-A-Z" class="button">A-Z</button> 
+              <button id="orden-Z-A" class="button">Z-A</button>
+            </section>
+          </section>
 
-      <!-- seccion casas -->
-      <section id="secCasas" class="hide">
-        <button class="regresar">Regresar</button>
-        <p>Casas</p>
-        <p>Filtrar Por:</p>
-        <button class="button" id="btn-Gryffindor">Gryffindor</button>
-        <button class="button" id="btn-Slytherin">Slytherin</button>
-        <button class="button" id="btn-Rovenclaw">Rovenclaw</button>
-        <button class="button" id="btn-Hufflepuff">Hufflepuff</button>
-      </section>
+          <section class="flex-containerFilter">
+            <!-- seccion Especies -->
+            <section id="secEspecie" class="hide" >
+              <button class="regresarEspecie">Regresar</button>
+               <button class="button " id="btn-Humano">Humano</button>
+               <button class="button " id="btn-Half-giant">Half-giant</button>
+               <button class="button " id="btn-Werewolf">Werewolf</button>
+               <button class="button " id="btn-Cat">Cat</button>
+            </section>
+            <!-- seccion casas -->
+            <section id="secCasas" class="hide">
+                <button class="regresarGryffindor">Regresar</button>
+               <button class="button" id="btn-Gryffindor">Gryffindor</button>
+               <button class="button" id="btn-Slytherin">Slytherin</button>
+               <button class="button" id="btn-Rovenclaw">Rovenclaw</button>
+               <button class="button" id="btn-Hufflepuff">Hufflepuff</button>
+            </section>
+            <!-- seccion roles -->
+            <section id="secRoles" class="hide">
+                <button class="regresarEstudiante">Regresar</button>
+               <button class="button" id="btn-Estudiantes">Estudiantes</button>
+               <button class="button" id="btn-Staff">Staff</button>
+            </section>  
+          </section>
 
-      <!-- seccion roles -->
-      <section id="secRoles" class="hide">
-        <button class="regresar">Regresar</button>
-        <p>Roles</p>
-        <p>Filtrar Por:</p>
-        <button class="button" id="btn-Estudiantes">Estudiantes</button>
-        <button class="button" id="btn-Staff">Staff</button>
-      </section>
-      <p>Ordenar de:</p>
-      <button class="button" id="orden-A-Z">A-Z</button> 
-      <button class="button" id="orden-Z-A">Z-A</button>
+
+
+               <!-- seccion lista personajes -->
+          <section id="personajes" class="personajes"> 
+          </section>
+
+        
+        </section>
+      </main>
     </section>
 
-    <!-- seccion lista personajes -->
-    <section id="personajes" class="listapersonajes hide"></section>
-  </main>
-  <!-- seccion noticias -->
-  <aside class="noticias">
-    <h2>Noticias</h2>
-  </aside>
-
-
-  <!-- seccion pie de página-->
-  <footer class="pie-Pagina">
-    <p> Wizarding World 2019</p>
-    <a href="https://www.facebook.com/">Comparte por facebook</a>
-    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://ed.team">Comparte en LinkedIn</a>
-    
-  </footer>
-
+    <aside class="noticias">
+     <h4> Wizarding World 2019</h4>
+    </aside>
+  
   <script type="module" src="main.js"></script>
-
 </body>
 </html>

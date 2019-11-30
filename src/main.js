@@ -1,11 +1,10 @@
-
 import POTTER from './data/potter/potter.js';
 import {
   filter, filterPatronus, filterVaritas, order, filtrar,
 } from './data.js';
 
+
 const personajes = document.querySelector('#personajes');
-console.log(filterVaritas(POTTER, 'wand'));
 const patronus = document.querySelector('#patronus');
 const varitas = document.querySelector('#varitas');
 
@@ -30,15 +29,14 @@ const btnHufflepuff = document.querySelector('#btn-Hufflepuff');
 
 const btnEstudiantes = document.querySelector('#btn-Estudiantes');
 const btnStaff = document.querySelector('#btn-Staff');
-const mainContenedor = document.querySelector('#main');
 
-const lista = (y) => {
+const lista = (arr) => {
   let resultado = '';
-  for (let i = 0; i < y.length; i += 1) {
+  for (let i = 0; i < arr.length; i += 1) {
     resultado += `
       <section class = "listPersonaje">
-         <img  class = "imagen" src=${y[i].image}>
-           <p >${y[i].name}</p>
+         <img  class = "imagen" src=${arr[i].image} id=${i}>
+           <p>${arr[i].name}</p>
        </section>
        `;
   }
@@ -51,8 +49,8 @@ const listaPatronus = (pat) => {
     resultadoPatronus += `
       <section class = "listPersonaje">
        <img  class = "imagen" src=${pat[i].imagen}>
-           <section>${pat[i].nombre}</section>
-           <section>${pat[i].hechizo}</section>
+           <p>${pat[i].nombre}</p>
+           <p class="color"> Patronus: ${pat[i].hechizo}</p>
        
       </section>
        `;
@@ -65,10 +63,11 @@ const listaVaritas = (Varitas) => {
     resultaVaritas += `
           <section class = "listPersonaje">
               <img  class = "imagen" src=${Varitas[i].imagen}>
-               <section >${Varitas[i].nombre}</section>
-              <section >madera:  ${Varitas[i].madera}</section>
-              <section >nucleo:  ${Varitas[i].centro}</section>
-              <section >longitud:  ${Varitas[i].longitud}</section>
+              <p>${Varitas[i].nombre}</p>
+              <p   class="color varita">Varita</p>
+              <p>madera:  ${Varitas[i].madera} </p>
+              <p> nucleo: ${Varitas[i].centro}</p>
+              <p>longitud: ${Varitas[i].longitud}</p>
        
           </section>
        `;
@@ -76,19 +75,60 @@ const listaVaritas = (Varitas) => {
   return resultaVaritas;
 };
 
-const mostrarPersonajes = document.querySelector('#opcion1');
+const getPersonaje = (data, idPersonaje) => {
+  const personajeHTML = `
+  <button>
+  <img class="btnRegresar" id="btnRegresar" src= https://pngimage.net/wp-content/uploads/2018/06/icono-regresar-png-7.png/>
+  </button>
+  <div id='general' class="listPersonaje">
+  
+  <div id='containerImagen'>
+  <img  class="imagen"src= ${data[idPersonaje].image}>
+  </div>
+  <div id='containerGetPersonaje'>
+  <p>Nombre: ${data[idPersonaje].name}</p>
+  <p>Especie: ${data[idPersonaje].species}</p>
+  <p>Género: ${data[idPersonaje].gender}</p>
+  <p>Casa: ${data[idPersonaje].house}</p>
+  <p>Fecha de nacimiento: ${data[idPersonaje].dateOfBirth}</p>
+  <p>Año de nacimiento: ${data[idPersonaje].yearOfBirth}</p>
+  <p>Ancestro: ${data[idPersonaje].ancestry}</p>
+  <p>Color de ojos: ${data[idPersonaje].eyeColour}</p>
+  <p>Color de cabello: ${data[idPersonaje].hairColour}</p>
+  <p>Madera de varita: ${data[idPersonaje].wand.wood}</p>
+  <p>Núcleo de varita: ${data[idPersonaje].wand.core}</p>
+  <p>Longitud de varita: ${data[idPersonaje].wand.length}</p>  </div>
+  </div>`;
+  return personajeHTML;
+};
+const main = document.getElementById('main');
 
-mostrarPersonajes.addEventListener('click', () => {
-  mainContenedor.classList.remove('hide');
+const mostrarP = document.querySelector('#opcion1');
+mostrarP.addEventListener('click', () => {
+  main.classList.remove('hide');
+  personajes.innerHTML = lista(POTTER);
+  const traerTodosLosPersonajes = document.querySelectorAll('.imagen');
+
+  for (let i = 0; i < traerTodosLosPersonajes.length; i += 1) {
+    traerTodosLosPersonajes[i].addEventListener('click', () => {
+      const idPersonaje = traerTodosLosPersonajes[i].id;
+
+
+      personajes.innerHTML = getPersonaje(POTTER, idPersonaje);
+    });
+  }
 });
-
+// const btnRegresar = document.getElementById('btnRegresar');
+// btnRegresar.addEventListener('click', () => {
+//   btnRegresar.add('hide');
+// });
 const mostrarHechizos = document.querySelector('#patronus');
 mostrarHechizos.addEventListener('click', () => {
-  mainContenedor.classList.remove('hide');
+  main.classList.remove('hide');
 });
 const mostrarVaritas = document.querySelector('#varitas');
 mostrarVaritas.addEventListener('click', () => {
-  mainContenedor.classList.remove('hide');
+  main.classList.remove('hide');
 });
 
 btnEspecie.addEventListener('click', () => {
@@ -120,8 +160,6 @@ btnWerewolf.addEventListener('click', () => {
   const werewolf = filter(POTTER, 'species', 'werewolf');
   personajes.innerHTML = lista(werewolf);
 });
-// eslint-disable-next-line no-console
-// console.log(filter(POTTER, 'species', 'werewolf'));
 
 btnCat.addEventListener('click', () => {
   const cat = filter(POTTER, 'species', 'cat');
@@ -159,15 +197,14 @@ btnStaff.addEventListener('click', () => {
 });
 
 patronus.addEventListener('click', () => {
+  secInicio.classList.add('hide');
   const Patronus = filterPatronus(POTTER, 'patronus');
   personajes.innerHTML = listaPatronus(Patronus);
 });
 
-//  patronus.addEventListener('click',(event)=>{
-//      const patronus = filterPatronus(POTTER,event.target.id)
-//      personajes.innerHTML= listaPatronus(patronus)
-//      })
+
 varitas.addEventListener('click', () => {
+  secInicio.classList.add('hide');
   const Varitas = filterVaritas(POTTER, 'wand');
   personajes.innerHTML = listaVaritas(Varitas);
 });
@@ -185,5 +222,3 @@ orderDescendente.addEventListener('click', () => {
   const ordenAlfaDes = (order(POTTER).reverse());
   personajes.innerHTML = lista(ordenAlfaDes);
 });
-
-personajes.innerHTML = lista(POTTER);

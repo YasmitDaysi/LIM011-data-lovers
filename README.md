@@ -90,8 +90,8 @@ y de equipo.
 
 ### HTML y CSS
 
-- [ ] Entender y reconocer por qué es importante el HTML semántico.
-- [ ] Identificar y entender tipos de selectores en CSS.
+- [x] Entender y reconocer por qué es importante el HTML semántico.
+- [x] Identificar y entender tipos de selectores en CSS.
 - [ ] Entender como funciona `flexbox` en CSS.
 - [ ] Construir tu aplicación respetando el diseño planeado (maquetación).
 

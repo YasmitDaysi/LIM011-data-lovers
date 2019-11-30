@@ -6,6 +6,7 @@ describe('order', () => {
   it('debería ser una función', () => {
     expect(typeof order).toBe('function');
   });
+
   it('deberia retonar los personajes ordenados de la A-Z', () => {
     const input = [
       { name: 'Ron Weasley' },
@@ -17,7 +18,8 @@ describe('order', () => {
       { name: 'Draco Malfoy' },
       { name: 'Ron Weasley' },
     ];
-    expect(order(input, 'A-Z')).toEqual(output);
+    expect(order(input, 'name', 'A-Z')).toEqual(output);
+    expect(order(input, 'name', 'Z-A')).toEqual(output);
   });
 });
 
