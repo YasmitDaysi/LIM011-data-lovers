@@ -1,6 +1,7 @@
+
 import POTTER from './data/potter/potter.js';
 import {
-  filter, filterPatronus, filterVaritas, order, filtrar,
+  filtrarEspecie, filterPatronus, filterVaritas, order, filtrarRolStaff, filtrarRolEst, filtrar,
 } from './data.js';
 
 
@@ -147,22 +148,22 @@ btnRoles.addEventListener('click', () => {
 });
 
 btnHumano.addEventListener('click', () => {
-  const species = filter(POTTER, 'species', 'human');
+  const species = filtrarEspecie(POTTER, 'human');
   personajes.innerHTML = lista(species);
 });
 
 btnHalfGiant.addEventListener('click', () => {
-  const halfGiant = filter(POTTER, 'species', 'half-giant');
+  const halfGiant = filtrarEspecie(POTTER, 'half-giant');
   personajes.innerHTML = lista(halfGiant);
 });
 
 btnWerewolf.addEventListener('click', () => {
-  const werewolf = filter(POTTER, 'species', 'werewolf');
+  const werewolf = filtrarEspecie(POTTER, 'werewolf');
   personajes.innerHTML = lista(werewolf);
 });
 
 btnCat.addEventListener('click', () => {
-  const cat = filter(POTTER, 'species', 'cat');
+  const cat = filtrarEspecie(POTTER, 'cat');
   personajes.innerHTML = lista(cat);
 });
 
@@ -187,12 +188,12 @@ btnHufflepuff.addEventListener('click', () => {
 });
 
 btnEstudiantes.addEventListener('click', () => {
-  const Estudiantes = filter(POTTER, 'hogwartsStudent', true);
+  const Estudiantes = filtrarRolEst(POTTER, true);
   personajes.innerHTML = lista(Estudiantes);
 });
 
 btnStaff.addEventListener('click', () => {
-  const Staff = filter(POTTER, 'hogwartsStaff', true);
+  const Staff = filtrarRolStaff(POTTER, true);
   personajes.innerHTML = lista(Staff);
 });
 

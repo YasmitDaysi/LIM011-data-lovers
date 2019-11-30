@@ -5,20 +5,23 @@ export const order = ((data) => data.sort((a, b) => {
   return 0;
 }));
 
-export const filter = (data, propiedad, value) => {
-  const newArray = [];
-  for (let i = 0; i < data.length; i += 1) {
-    if (data[i][propiedad] === value) {
-      newArray.push({
-        name: data[i].name,
-        image: data[i].image,
-      });
-    }
-  }
-  return newArray;
+export const filtrarRolEst = (data, valor) => {
+  const rol = data.filter((elemento) => elemento.hogwartsStaff === valor);
+  return rol;
 };
+export const filtrarRolStaff = (data, valor) => {
+  const rol = data.filter((elemento) => elemento.hogwartsStudent === valor);
+  return rol;
+};
+
+
+export const filtrarEspecie = (data, valor) => {
+  const especie = data.filter((elemento) => elemento.species === valor);
+  return especie;
+};
+
 export const filtrar = (data, valor) => {
-  const filterHouse = data.filter((element) => (element.house === valor));
+  const filterHouse = data.filter((element) => element.house === valor);
   return filterHouse;
 };
 
