@@ -1,12 +1,11 @@
 import {
-  order, filter, filtrar, filterPatronus, filterVaritas,
+  order, filtrarCasayRol, filtrarCasa, filterPatronus, filterVaritas,
 } from '../src/data.js';
 
 describe('order', () => {
   it('debería ser una función', () => {
     expect(typeof order).toBe('function');
   });
-
   it('deberia retonar los personajes ordenados de la A-Z', () => {
     const input = [
       { name: 'Ron Weasley' },
@@ -18,14 +17,12 @@ describe('order', () => {
       { name: 'Draco Malfoy' },
       { name: 'Ron Weasley' },
     ];
-    expect(order(input, 'name', 'A-Z')).toEqual(output);
     expect(order(input, 'name', 'Z-A')).toEqual(output);
   });
 });
-
-describe('filter', () => {
+describe('filtrarCasayRol', () => {
   it('debería ser una función', () => {
-    expect(typeof filter).toBe('function');
+    expect(typeof filtrarCasayRol).toBe('function');
   });
   it('deberia filtrar los personajes por especie', () => {
     const inputSpecies = [
@@ -74,10 +71,10 @@ describe('filter', () => {
         image: 'http:hp-api.herokuapp.com/images/ron.jpg',
       },
     ];
-    expect(filter(inputSpecies, 'species', 'human')).toEqual(outputHuman);
-    expect(filter(inputSpecies, 'species', 'half-giant')).toEqual(outputHalfGiant);
-    expect(filter(inputSpecies, 'species', 'werewolf')).toEqual(outputWerewolf);
-    expect(filter(inputSpecies, 'species', 'cat')).toEqual(outputCat);
+    expect(filtrarCasayRol(inputSpecies, 'species', 'human')).toEqual(outputHuman);
+    expect(filtrarCasayRol(inputSpecies, 'species', 'half-giant')).toEqual(outputHalfGiant);
+    expect(filtrarCasayRol(inputSpecies, 'species', 'werewolf')).toEqual(outputWerewolf);
+    expect(filtrarCasayRol(inputSpecies, 'species', 'cat')).toEqual(outputCat);
   });
   it('deberia filtar personajes por rol', () => {
     const inputRol = [
@@ -104,16 +101,15 @@ describe('filter', () => {
         image: 'http:hp-api.herokuapp.com/images/cho.jpg',
       },
     ];
-    expect(filter(inputRol, 'hogwartsStaff', true)).toEqual(outputStaff);
-    expect(filter(inputRol, 'hogwartsStudent', true)).toEqual(outputEstudiante);
+    expect(filtrarCasayRol(inputRol, 'hogwartsStaff', true)).toEqual(outputStaff);
+    expect(filtrarCasayRol(inputRol, 'hogwartsStudent', true)).toEqual(outputEstudiante);
   });
 });
-
-describe('filtrar', () => {
+describe('filtrarCasa', () => {
   it('debería ser una función', () => {
-    expect(typeof filtrar).toBe('function');
+    expect(typeof filtrarCasa).toBe('function');
   });
-  it('deberia filtrar personajes por casa', () => {
+  it('deberia filtrarCasa personajes por casa', () => {
     const inputhouse = [
       {
         name: 'Harry Potter',
@@ -131,7 +127,6 @@ describe('filtrar', () => {
         name: 'Cedric Diggory',
         house: 'Hufflepuff',
       },
-
     ];
     const outputGryffindor = [
       {
@@ -139,7 +134,6 @@ describe('filtrar', () => {
         house: 'Gryffindor',
       },
     ];
-
     const outputSlytherin = [
       {
         name: 'Severus Snape',
@@ -158,13 +152,12 @@ describe('filtrar', () => {
         house: 'Hufflepuff',
       },
     ];
-    expect(filtrar(inputhouse, 'Gryffindor')).toEqual(outputGryffindor);
-    expect(filtrar(inputhouse, 'Slytherin')).toEqual(outputSlytherin);
-    expect(filtrar(inputhouse, 'Ravenclaw')).toEqual(outputRavenclaw);
-    expect(filtrar(inputhouse, 'Hufflepuff')).toEqual(outputHufflepuff);
+    expect(filtrarCasa(inputhouse, 'Gryffindor')).toEqual(outputGryffindor);
+    expect(filtrarCasa(inputhouse, 'Slytherin')).toEqual(outputSlytherin);
+    expect(filtrarCasa(inputhouse, 'Ravenclaw')).toEqual(outputRavenclaw);
+    expect(filtrarCasa(inputhouse, 'Hufflepuff')).toEqual(outputHufflepuff);
   });
 });
-
 describe('filterPatronus', () => {
   it('debería ser una función', () => {
     expect(typeof filterPatronus).toBe('function');
@@ -180,7 +173,6 @@ describe('filterPatronus', () => {
         name: 'Draco Malfoy',
         patronus: '',
         image: 'http://hp-api.herokuapp.com/images/draco.jpg',
-
       },
     ];
     const outputPatronus = [
@@ -206,7 +198,6 @@ describe('filterVaritas', () => {
           wood: 'yew',
           core: '',
           length: '',
-
         },
       },
       {
@@ -266,7 +257,6 @@ describe('filterVaritas', () => {
         centro: 'phoenix feather',
         longitud: 11,
       },
-
     ];
     expect(filterVaritas(inputVaritas, 'wand')).toEqual(outputTvaritas);
   });
