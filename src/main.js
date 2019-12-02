@@ -34,6 +34,8 @@ const btnEstudiantes = document.querySelector('#btn-Estudiantes');
 const btnStaff = document.querySelector('#btn-Staff');
 const mostrarHechizos = document.querySelector('#patronus');
 
+const traerTodosLosPersonajes = document.querySelectorAll('.imagen');
+
 
 const lista = (arr) => {
   let resultado = '';
@@ -110,7 +112,7 @@ mostrarP.addEventListener('click', () => {
   video.classList.add('hide');
   footer.classList.add('hide');
   personajes.innerHTML = lista(POTTER);
-  const traerTodosLosPersonajes = document.querySelectorAll('.imagen');
+
   for (let i = 0; i < traerTodosLosPersonajes.length; i += 1) {
     traerTodosLosPersonajes[i].addEventListener('click', () => {
       const idPersonaje = traerTodosLosPersonajes[i].id;
@@ -128,6 +130,7 @@ mostrarHechizos.addEventListener('click', () => {
   footer.classList.add('hide');
 });
 const mostrarVaritas = document.querySelector('#varitas');
+
 mostrarVaritas.addEventListener('click', () => {
   main.classList.remove('hide');
   opciones.classList.add('hide');
@@ -208,12 +211,15 @@ varitas.addEventListener('click', () => {
   const Varitas = filterVaritas(POTTER, 'wand');
   personajes.innerHTML = listaVaritas(Varitas);
 });
+
 const ordeAscendente = document.getElementById('orden-A-Z');
+
 ordeAscendente.addEventListener('click', () => {
   const ordenAlfaAsc = order(POTTER);
   personajes.innerHTML = lista(ordenAlfaAsc);
 });
 const orderDescendente = document.getElementById('orden-Z-A');
+
 orderDescendente.addEventListener('click', () => {
   const ordenAlfaDes = (order(POTTER).reverse());
   personajes.innerHTML = lista(ordenAlfaDes);

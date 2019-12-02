@@ -116,7 +116,7 @@ y de equipo.
 - [x] Testear funciones (funciones puras).
 
 ### Git y GitHub
-- [x] Ejecutar comandos de git (`add` | `commit` | `pull` | `status` | `push`).
+- [x] Ejecutar comandos de git (`add` | `commit` | `push` | `status` | `pull`).
 - [x] Utilizar los repositorios de GitHub (`clone` | `fork` | gh-pages).
 - [x] Colaborar en Github (pull requests).
 

@@ -46,7 +46,7 @@ display: none;
 .opcion{
   display: flex;
   justify-content: space-evenly;
-   
+  margin-bottom: 15px;
 }
 .opcionesLi:hover{
   color: #6b63b5;
@@ -188,6 +188,5 @@ text-align: center;
 #video{
 width: 560px;
 height: 315px;
-margin-top: 30px;
-margin-left: 500px;
+margin: 15px 394px;
 }
