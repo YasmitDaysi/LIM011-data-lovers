@@ -34,21 +34,20 @@ const btnEstudiantes = document.querySelector('#btn-Estudiantes');
 const btnStaff = document.querySelector('#btn-Staff');
 const mostrarHechizos = document.querySelector('#patronus');
 
-const traerTodosLosPersonajes = document.querySelectorAll('.imagen');
-
 
 const lista = (arr) => {
   let resultado = '';
   for (let i = 0; i < arr.length; i += 1) {
     resultado += `
       <section class = "listPersonaje">
-         <img  class = "imagen" src=${arr[i].image} id=${i}>
+         <img  class="imagen" src=${arr[i].image} id=${i}>
            <section class="color">${arr[i].name}</section>
        </section>
        `;
   }
   return resultado;
 };
+
 const listaPatronus = (pat) => {
   let resultadoPatronus = '';
   for (let i = 0; i < pat.length; i += 1) {
@@ -67,7 +66,7 @@ const listaVaritas = (Varitas) => {
   for (let i = 0; i < Varitas.length; i += 1) {
     resultaVaritas += `
           <section class = "listPersonaje">
-              <img  class = "imagen" src=${Varitas[i].imagen}>
+              <img  class="imagen" src=${Varitas[i].imagen}>
                <section >${Varitas[i].nombre}</section>
                <p>Varita</p>
               <section >madera:  ${Varitas[i].madera}</section>
@@ -104,7 +103,6 @@ const getPersonaje = (data, idPersonaje) => {
   return personajeHTML;
 };
 
-
 mostrarP.addEventListener('click', () => {
   main.classList.remove('hide');
   btnRegresar.classList.add('hide');
@@ -113,7 +111,10 @@ mostrarP.addEventListener('click', () => {
   footer.classList.add('hide');
   personajes.innerHTML = lista(POTTER);
 
+  const traerTodosLosPersonajes = document.querySelectorAll('.imagen');
+
   for (let i = 0; i < traerTodosLosPersonajes.length; i += 1) {
+    console.log(traerTodosLosPersonajes[i]);
     traerTodosLosPersonajes[i].addEventListener('click', () => {
       const idPersonaje = traerTodosLosPersonajes[i].id;
       personajes.innerHTML = getPersonaje(POTTER, idPersonaje);
@@ -164,6 +165,9 @@ btnRegresar.addEventListener('click', () => {
 
 btnHumano.addEventListener('click', () => {
   const species = filtrarCasayRol(POTTER, 'species', 'human');
+  const ha = lista(species);
+  console.log(ha);
+
   personajes.innerHTML = lista(species);
 });
 btnHalfGiant.addEventListener('click', () => {

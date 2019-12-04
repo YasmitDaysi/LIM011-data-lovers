@@ -2,16 +2,18 @@ export const order = ((data) => data.sort((a, b) => (a.name > b.name ? 1 : -1)))
 
 export const filtrarCasayRol = (data, propiedad, value) => {
   const newArray = [];
-  for (let i = 0; i < data.length; i += 1) {
+  for (let i = 0; i < 25; i += 1) {
     if (data[i][propiedad] === value) {
       newArray.push({
         name: data[i].name,
         image: data[i].image,
       });
     }
+    console.log(newArray);
   }
   return newArray;
 };
+
 export const filtrarCasa = (data, valor) => {
   const filterHouse = data.filter((element) => {
     if (element.house === valor) {
